@@ -1,1 +1,1 @@
-{"name":"ubuntu/trusty64","version":"20190514.0.0","provider":"virtualbox","directory":"boxes/ubuntu-VAGRANTSLASH-trusty64/20190514.0.0/virtualbox"}
+{"name":"ubuntu/hirsute64","version":"20210711.0.0","provider":"virtualbox","directory":"boxes/ubuntu-VAGRANTSLASH-hirsute64/20210711.0.0/virtualbox"}
