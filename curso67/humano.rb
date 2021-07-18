@@ -7,9 +7,14 @@ class Humano
         @salud = 100
     end
     def ataque objeto
-        puts objeto.class.ancestors
-        @salud = salud - 1
-        puts "Atacaste a un humano, tu salud es de #{@salud}"
+        clases = objeto.class.ancestors.to_s       
+        if clases.match? ("Humano")
+            @salud = salud - 10
+            puts "Atacaste a un humano, tu salud es de #{@salud}"
+            true
+        else
+            false
+        end
     end
 end
 juanito = Humano.new
