@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h1>Prestamos</h1>
+    </div>
+    <div class="col-3">
+    <%= link_to 'Nuevo Prestamo', new_prestamo_path, class:"btn btn-primary", role:"button" %>
+    </div>
+  <div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha Prestamo</th>
+      <th>Usuario</th>
+      <th>Libro</th>
+      <th>Fecha devolución</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prestamos.each do |prestamo| %>
+      <tr>
+        <td><%= prestamo.created_at %></td>
+        <td>
+          <% @usuarios.each do |us| %>
+            <% if us.id == prestamo.usuario_id %>
+              <%= us.email %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% @libros.each do |lib| %>
+            <% if lib.id == prestamo.libro_id %>
+              <%= lib.nombre %>
+            <% end %>
+          <% end %>          
+        </td>
+        <td><%= prestamo.fechad %></td>
+        <td><%= link_to 'Mostrar', prestamo %></td>
+        <td><%= link_to 'Editar', edit_prestamo_path(prestamo) %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

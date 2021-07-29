@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fechad:</strong>
+  <%= @edicion.fechad %>
+</p>
+
+<p>
+  <strong>Libro:</strong>
+  <%= @edicion.libro_id %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @edicion.autor_id %>
+</p>
+
+<%= link_to 'Edit', edit_edicion_path(@edicion) %> |
+<%= link_to 'Back', edicions_path %>

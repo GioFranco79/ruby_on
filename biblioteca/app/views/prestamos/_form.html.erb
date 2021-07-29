@@ -1,0 +1,32 @@
+<%= form_with(model: prestamo) do |form| %>
+  <% if prestamo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
+
+      <ul>
+        <% prestamo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fechad, "Fecha devolución" %>
+    <%= form.date_select :fechad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :libro_id %>
+    <%= form.text_field :libro_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

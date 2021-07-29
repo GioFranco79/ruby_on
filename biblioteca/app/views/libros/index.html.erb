@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row">
+  <div class="col-9">
+    <h1>Libros</h1>
+  </div>
+  <div class="col-3">
+    <%= link_to 'Ingresar Libro', new_libro_path, class:"btn btn-primary", role:"button" %>
+  </div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Título</th>
+        <th>Editorial</th>
+        <th>Autores</th> 
+        <th>Año</th>
+        <th colspan="2">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @libros.each do |libro| %>
+        <tr>
+          <td><%= libro.id %></td>
+          <td><%= libro.nombre %></td>
+          <td><%= libro.editorial %></td>
+          <td>
+          <% escritores = "" %>
+          <% @autores.each do |aut| %>
+            <% @ediciones.each do |edi| %>           
+              <% if edi.libro_id == libro.id && edi.autor_id == aut.id %>
+                <% if escritores.empty? == false %>
+                  <% escritores += ", " %>
+                <% end %>
+                <% escritores = escritores + aut.nombre + " " + aut.apellido %>
+              <% end %>    
+            <% end %>                    
+          <% end %>        
+          <%= escritores %>
+          </td>  
+          <td><%= libro.anho %></td>
+          <td><%= link_to 'Mostrar', libro %></td>
+          <td><%= link_to 'Editar', edit_libro_path(libro) %></td>       
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechad: 2021-07-23
+  usuario: one
+  libro: one
+
+two:
+  fechad: 2021-07-23
+  usuario: two
+  libro: two
