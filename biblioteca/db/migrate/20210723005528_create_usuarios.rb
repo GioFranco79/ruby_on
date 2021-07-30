@@ -5,6 +5,7 @@ class CreateUsuarios < ActiveRecord::Migration[6.1]
       t.string :apellido     
       t.string :direccion
       t.string :fono
+      t.integer :tipo
 
       t.timestamps
     end

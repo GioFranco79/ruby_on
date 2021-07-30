@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_07_26_003005) do
 
-  create_table "active_admin_comments", force: :cascade do |t|
+  create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_003005) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
-  create_table "admin_users", force: :cascade do |t|
+  create_table "admin_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_003005) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "autors", force: :cascade do |t|
+  create_table "autors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre"
     t.string "apellido"
     t.string "nacionalidad"
@@ -46,39 +46,41 @@ ActiveRecord::Schema.define(version: 2021_07_26_003005) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "edicions", force: :cascade do |t|
+  create_table "edicions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "fechad"
-    t.integer "libro_id", null: false
-    t.integer "autor_id", null: false
+    t.bigint "libro_id", null: false
+    t.bigint "autor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["autor_id"], name: "index_edicions_on_autor_id"
     t.index ["libro_id"], name: "index_edicions_on_libro_id"
   end
 
-  create_table "libros", force: :cascade do |t|
+  create_table "libros", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre"
     t.string "editorial"
+    t.integer "cantidad"
     t.integer "anho"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "prestamos", force: :cascade do |t|
+  create_table "prestamos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "fechad"
-    t.integer "usuario_id", null: false
-    t.integer "libro_id", null: false
+    t.bigint "usuario_id", null: false
+    t.bigint "libro_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["libro_id"], name: "index_prestamos_on_libro_id"
     t.index ["usuario_id"], name: "index_prestamos_on_usuario_id"
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "usuarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre"
     t.string "apellido"
     t.string "direccion"
     t.string "fono"
+    t.integer "tipo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
