@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rutayuda: MyString
+  hentrada: 2021-08-03 16:03:29
+  hsalida: 2021-08-03 16:03:29
+  box: 1
+  profesional: one
+  centro: one
+
+two:
+  rutayuda: MyString
+  hentrada: 2021-08-03 16:03:29
+  hsalida: 2021-08-03 16:03:29
+  box: 1
+  profesional: two
+  centro: two

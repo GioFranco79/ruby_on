@@ -1,0 +1,56 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+    <table class="table table-primary table-striped">
+        <tr class="table-primary">
+            <td class="table-primary"><strong>Rut:</strong></td>
+            <td class="table-primary"><%= @paciente.rut %></td>
+        </tr>
+
+        <tr class="table-info">
+            <td class="table-info"><strong>Nombre:</strong></td>
+            <td class="table-info"><%= @paciente.nombre %></td>
+        </tr>
+
+        <tr class="table-primary">
+            <td class="table-primary"><strong>Apellido:</strong></td>
+            <td class="table-primary"><%= @paciente.apellido %></td>
+        </tr>
+
+        <tr class="table-info">
+            <td class="table-info"><strong>Fono:</strong></td>
+            <td class="table-info"><%= @paciente.fono %></td>
+        </tr>
+
+        <tr class="table-primary">
+            <td class="table-primary"><strong>Email:</strong></td>
+            <td class="table-primary"><%= @paciente.email %></td>
+        </tr>
+
+        <tr class="table-info">
+            <td class="table-info"><strong>Fechanac:</strong></td>
+            <td class="table-info"><%= @paciente.fechanac %></td>
+        </tr>
+
+        <tr class="table-primary">
+            <td class="table-primary"><strong>Prevision:</strong></td>
+            <td class="table-primary"><%= @paciente.prevision %></td>
+        </tr>
+        <tr class="table-primary">
+            <td class="table-primary"><strong>Centro Atención:</strong></td>
+            <td class="table-primary"><%= @centro.nombre %></td>
+        </tr>
+    </table>
+    <tr>
+    <%= form_for :termino, :url => { :action => :listo } do |f| %>    
+        <div class="row">
+          <div class="col-4">
+            <%= f.label "Profesional", class:"form-label" %>
+            <%= collection_select :profesional, :id, @odonto.all, :id, :nom_com, {:prompt => "Seleccione centro de atención"} %>
+          </div>  
+          <div class="col-2">
+            <%= f.submit "Elegir centro de atención", class:"btn btn-primary" %>
+          </div>
+        </div>    
+      <% end %>
+</div>

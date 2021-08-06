@@ -1,0 +1,54 @@
+
+<div class="row">
+  <%= form_with(model: paciente) do |form| %>
+    <% if paciente.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+        <ul>
+          <% paciente.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :rut, class:"form-label" %>
+      <%= form.text_field :rut, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :nombre, class:"form-label" %>
+      <%= form.text_field :nombre, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :apellido, class:"form-label" %>
+      <%= form.text_field :apellido, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :fono, class:"form-label" %>
+      <%= form.number_field :fono, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, class:"form-label" %>
+      <%= form.text_field :email, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :fechanac, class:"form-label" %>
+      <%= form.date_select :fechanac, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :prevision, class:"form-label" %>
+      <%= form.text_field :prevision, class:"form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Guardar Paciente", class:"btn btn-primary"%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Pacientes</h1>
+  <%= form_for :paciente, :url => { :action => :bcentro } do |form| %>
+    <hr>  
+    <div class="row">
+      <div class="col-4">
+        <%= form.label :rut, class:"form-label" %>
+        <%= form.text_field :rut, class:"form-control" %>
+      </div>  
+      <div class="col-2">
+        <%= form.submit "Buscar paciente", class:"btn btn-primary" %>
+      </div>
+    </div>    
+  <% end %>
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Fono</th>
+        <th>Email</th>
+        <th>Fechanac</th>
+        <th>Prevision</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pacientes.each do |paciente| %>
+        <tr>
+          <td><%= paciente.rut %></td>
+          <td><%= paciente.nombre + " " + paciente.apellido %></td>          
+          <td><%= paciente.fono %></td>
+          <td><%= paciente.email %></td>
+          <td><%= paciente.fechanac %></td>
+          <td><%= paciente.prevision %></td>
+          <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
+          <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>

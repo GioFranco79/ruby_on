@@ -1,0 +1,94 @@
+
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <div class="col-6">
+    <table class="table table-primary table-striped">
+      <tr class="table-primary">
+        <td class="table-primary"><strong>Rut:</strong></td>
+        <td class="table-primary"><%= @paciente.rut %></td>
+      </tr>
+
+      <tr class="table-info">
+        <td class="table-info"><strong>Nombre:</strong></td>
+        <td class="table-info"><%= @paciente.nombre %></td>
+      </tr>
+
+      <tr class="table-primary">
+        <td class="table-primary"><strong>Apellido:</strong></td>
+        <td class="table-primary"><%= @paciente.apellido %></td>
+      </tr>
+
+      <tr class="table-info">
+        <td class="table-info"><strong>Fono:</strong></td>
+        <td class="table-info"><%= @paciente.fono %></td>
+      </tr>
+
+      <tr class="table-primary">
+        <td class="table-primary"><strong>Email:</strong></td>
+        <td class="table-primary"><%= @paciente.email %></td>
+      </tr>
+
+      <tr class="table-info">
+        <td class="table-info"><strong>Fechanac:</strong></td>
+        <td class="table-info"><%= @paciente.fechanac %></td>
+      </tr>
+
+      <tr class="table-primary">
+        <td class="table-primary"><strong>Prevision:</strong></td>
+        <td class="table-primary"><%= @paciente.prevision %></td>
+      </tr>
+    </table>
+  </div>
+  <hr>  
+  <%= form_for :mostrar, :url => { :action => :procesar } do |f| %>    
+    <div class="row">
+      <div class="col-6">
+        <table class="table table-primary table-striped">
+          <tr>
+            <td class="table-info"><%= f.label "Centros de atención", class:"form-label" %></td>
+            <td>
+              <select name="centro" id="centro">
+                <option value='1'> Centro Piñuflin </option>
+                <option value='2'> Centro Piñuflon </option>
+              </select>
+            </td>  
+            <td class="table-primary"><%= collection_select :centro, :id, @cen.all, :iden, :id_nom, {:prompt => "Seleccione centro de atención"} %></td>          
+          </tr>  
+        </table>
+      </div>      
+    </div> 
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <table class="table table-primary table-striped">
+          <tr>
+            <td calss="table-info"><%= f.label "Seleccione profesional", class:"form-label" %></td>
+            <td class="table-primary"><%= collection_select :profe, :id, Profesional.where("tipo = 1"), :id, :nom_com, {:prompt => "Seleccione Profesional"} %></td>        
+          </tr>  
+        </table>
+      </div>  
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-2">
+        <%= f.submit "Seleccionar", class:"btn btn-primary" %>
+      </div>
+    </div>    
+  <% end %>
+  <hr>
+  <%= link_to 'Volver', pacientes_path %>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {  
+    $("#centro_id").onchange(function(){
+      alert ("No hace nada");
+      var url = '/obtener_centro?centro_id=' + $(this).val()
+      $("#profe_id").removeOption(/./)
+      $.get(url, function(data) {
+        $('#profe_id').addOption(data, false);
+      });
+    });
+  })
+</script>

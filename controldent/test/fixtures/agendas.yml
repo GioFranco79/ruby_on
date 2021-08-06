@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fagenda: 2021-08-03
+  hagenda: 2021-08-03 16:05:38
+  profesional: one
+  centro: one
+  paciente: one
+  horario: one
+  usuario: one
+
+two:
+  fagenda: 2021-08-03
+  hagenda: 2021-08-03 16:05:38
+  profesional: two
+  centro: two
+  paciente: two
+  horario: two
+  usuario: two
