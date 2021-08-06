@@ -1,0 +1,42 @@
+<%= form_with(model: agenda) do |form| %>
+  <% if agenda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+
+      <ul>
+        <% agenda.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fagenda %>
+    <%= form.datetime_select :fagenda %>
+  </div>
+
+  <div class="field">
+    <%= form.label :box %>
+    <%= form.number_field :box %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paciente_id %>
+    <%= form.text_field :paciente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profesional_id %>
+    <%= form.text_field :profesional_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horario_id %>
+    <%= form.text_field :horario_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

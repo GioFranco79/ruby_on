@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class = "container">
+  <h1>Profesionales</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Titulo</th>
+        <th>Especialidad</th>
+        <th>Fono</th>
+        <th>Ciudad</th>
+        <th>Comuna</th>
+        <th>Direccion</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @profesionals.each do |profesional| %>
+        <tr>
+          <td><%= profesional.rut %></td>
+          <td><%= profesional.nombre %></td>
+          <td><%= profesional.apellido %></td>
+          <td><%= profesional.titulo %></td>
+          <td><%= profesional.especialidad %></td>
+          <td><%= profesional.fono %></td>
+          <td><%= profesional.ciudad %></td>
+          <td><%= profesional.comuna %></td>
+          <td><%= profesional.direccion %></td>
+          <td><%= profesional.email %></td>
+          <td><%= link_to 'Mostrar', profesional %></td>
+          <td><%= link_to 'Editar', edit_profesional_path(profesional) %></td>
+          <td><%= link_to 'Eliminar', profesional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
+<%= link_to 'Nuevo Profesional', new_profesional_path, class:"btn btn-primary" %>

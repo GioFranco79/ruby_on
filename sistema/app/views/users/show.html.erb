@@ -1,0 +1,17 @@
+<br>
+<div class="header">
+  <h4>Hola <%= current_user.nombre %>!!</h4>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md" id="section">
+      <h1>Nombre: <%= current_user.nombre %> <%= current_user.apellido %></h1>
+      <h4>Seccion 1</h4>
+      <br>
+      <h4>Seccion 2</h4>
+      <span><%= flash[:errors] %></span>
+      <br>
+    </div>
+  </div>
+</div>

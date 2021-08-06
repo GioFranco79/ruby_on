@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: MyString
+  nombre: MyString
+  ciudad: MyString
+  comuna: MyString
+  direccion: MyString
+  fono: MyString
+
+two:
+  rut: MyString
+  nombre: MyString
+  ciudad: MyString
+  comuna: MyString
+  direccion: MyString
+  fono: MyString

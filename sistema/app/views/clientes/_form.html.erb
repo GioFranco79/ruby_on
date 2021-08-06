@@ -1,0 +1,60 @@
+<div class="col-10">
+  <%= form_with(model: cliente) do |form| %>
+    <% if cliente.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+        <ul>
+          <% cliente.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <table>
+    <tr>
+      <td><%= form.label :rut %></td>
+      <td><%= form.text_field :rut %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :razon %></td>
+      <td><%= form.text_field :razon %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :fono %></td>
+      <td><%= form.text_field :fono %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :email %></td>
+      <td><%= form.text_field :email %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :ciudad %></td>
+      <td><%= form.text_field :ciudad %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :comuna %></td>
+      <td><%= form.text_field :comuna %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :direccion %></td>
+      <td><%= form.text_field :direccion %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :representante %></td>
+      <td><%= form.text_field :representante %></td>
+    </tr>
+  </table>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

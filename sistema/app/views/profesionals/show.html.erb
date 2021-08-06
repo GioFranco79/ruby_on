@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @profesional.rut %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @profesional.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @profesional.apellido %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @profesional.titulo %>
+</p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @profesional.especialidad %>
+</p>
+
+<p>
+  <strong>Fono:</strong>
+  <%= @profesional.fono %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @profesional.ciudad %>
+</p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @profesional.comuna %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @profesional.direccion %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profesional.email %>
+</p>
+
+<%= link_to 'Editar', edit_profesional_path(@profesional) %> |
+<%= link_to 'Volver', profesionals_path %>

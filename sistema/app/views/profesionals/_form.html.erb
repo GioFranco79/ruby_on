@@ -1,0 +1,60 @@
+<div class="col-10">
+  <%= form_with(model: profesional) do |form| %>
+    <% if profesional.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(profesional.errors.count, "error") %> prohibited this profesional from being saved:</h2>
+
+        <ul>
+          <% profesional.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <table>
+      <tr>
+        <td><%= form.label :rut %></td>
+        <td><%= form.text_field :rut %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :nombre %></td>
+        <td><%= form.text_field :nombre %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :apellido %></td>
+        <td><%= form.text_field :apellido %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :titulo %></td>
+        <td><%= form.text_field :titulo %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :especialidad %></td>
+        <td><%= form.text_field :especialidad %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :ciudad %></td>
+        <td><%= form.text_field :ciudad %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :comuna %></td>
+        <td><%= form.text_field :comuna %></td>
+      </tr>
+
+      <tr>
+        <td><%= form.label :direccion %></td>
+        <td><%= form.text_field :direccion %></td>
+      </tr>
+    </table>
+    <div class="actions">
+      <%= form.submit "Agregar profesional", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
