@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_160538) do
+ActiveRecord::Schema.define(version: 2021_08_09_223037) do
 
   create_table "agendas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "fagenda"
-    t.time "hagenda"
+    t.string "hagenda"
     t.bigint "profesional_id", null: false
     t.bigint "centro_id", null: false
     t.bigint "paciente_id", null: false
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2021_08_03_160538) do
     t.string "representante"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "especialidads", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "nomesp"
+    t.bigint "profesional_id", null: false
+    t.bigint "centro_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["centro_id"], name: "index_especialidads_on_centro_id"
+    t.index ["profesional_id"], name: "index_especialidads_on_profesional_id"
   end
 
   create_table "horarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -117,6 +127,8 @@ ActiveRecord::Schema.define(version: 2021_08_03_160538) do
   add_foreign_key "agendas", "profesionals"
   add_foreign_key "agendas", "usuarios"
   add_foreign_key "centros", "clientes"
+  add_foreign_key "especialidads", "centros"
+  add_foreign_key "especialidads", "profesionals"
   add_foreign_key "horarios", "centros"
   add_foreign_key "horarios", "profesionals"
   add_foreign_key "usuarios", "centros"

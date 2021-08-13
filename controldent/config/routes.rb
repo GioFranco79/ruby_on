@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :especialidads
   root to: "home#index"
   get 'home/index'
   resources :agendas

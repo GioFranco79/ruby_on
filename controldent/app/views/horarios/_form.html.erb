@@ -1,47 +1,50 @@
-<%= form_with(model: horario) do |form| %>
-  <% if horario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
+<div class="row">
+  <div class="col-8">
+    <%= form_with(model: horario) do |form| %>
+      <% if horario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
+          <ul>
+            <% horario.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <ul>
-        <% horario.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= form.label "RUT ayudante", class:"form-label" %>
+        <%= form.text_field :rutayuda, class:"form-control" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :rutayuda %>
-    <%= form.text_field :rutayuda %>
+      <div class="field">
+        <%= form.label "Hora entrada", class:"form-label" %>
+        <%= form.datetime_select :hentrada, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Hora Salida", class:"form-label" %>
+        <%= form.datetime_select :hsalida, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Box de atención", class:"form-label" %>
+        <%= form.number_field :box, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Centro", class:"form-label" %>
+        <%= collection_select :horario, :centro_id, Centro.all, :id, :nombre, {:prompt => "Seleccione Centro"} %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Profesional", class:"form-label" %>
+        <%= collection_select :horario, :profesional_id, Profesional.where("tipo = 1"), :id, :nom_com, {:prompt => "Seleccione Profesional"} %>        
+      </div>    
+
+      <div class="actions">
+        <%= form.submit "Agregar Horario", class:"btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :hentrada %>
-    <%= form.datetime_select :hentrada %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hsalida %>
-    <%= form.datetime_select :hsalida %>
-  </div>
-
-  <div class="field">
-    <%= form.label :box %>
-    <%= form.number_field :box %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profesional_id %>
-    <%= form.text_field :profesional_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :centro_id %>
-    <%= form.text_field :centro_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>  

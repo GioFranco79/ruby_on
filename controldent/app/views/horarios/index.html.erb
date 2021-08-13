@@ -1,37 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Horarios</h1>
+  <h1>Horarios</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Rutayuda</th>
-      <th>Hentrada</th>
-      <th>Hsalida</th>
-      <th>Box</th>
-      <th>Profesional</th>
-      <th>Centro</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @horarios.each do |horario| %>
+  <table class="table table-primary table-striped table-auto table-bordered">
+    <thead>
       <tr>
-        <td><%= horario.rutayuda %></td>
-        <td><%= horario.hentrada %></td>
-        <td><%= horario.hsalida %></td>
-        <td><%= horario.box %></td>
-        <td><%= horario.profesional_id %></td>
-        <td><%= horario.centro_id %></td>
-        <td><%= link_to 'Show', horario %></td>
-        <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
-        <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Rutayuda</th>
+        <th>Hentrada</th>
+        <th>Hsalida</th>
+        <th>Box</th>
+        <th>Profesional</th>
+        <th>Centro</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @horarios.each do |horario| %>
+        <tr>
+          <td><%= horario.rutayuda %></td>
+          <td><%= horario.hentrada %></td>
+          <td><%= horario.hsalida %></td>
+          <td><%= horario.box %></td>
+          <td><%= horario.profesional_id %></td>
+          <td><%= horario.centro_id %></td>
+          <td><%= link_to 'Show', horario %></td>
+          <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
+          <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Horario', new_horario_path %>
+  <br>
+
+  <%= link_to 'New Horario', new_horario_path, class:"btn btn-primary" %>
+</div>

@@ -13,6 +13,8 @@ class HorariosController < ApplicationController
   # GET /horarios/new
   def new
     @horario = Horario.new
+    @profe = Profesional.all
+    @cen = Centro.all
   end
 
   # GET /horarios/1/edit

@@ -4,24 +4,26 @@
   <%= form_for :paciente, :url => { :action => :bcentro } do |form| %>
     <hr>  
     <div class="row">
-      <div class="col-4">
-        <%= form.label :rut, class:"form-label" %>
-        <%= form.text_field :rut, class:"form-control" %>
-      </div>  
-      <div class="col-2">
-        <%= form.submit "Buscar paciente", class:"btn btn-primary" %>
+      <div class="col-6">
+      <table>
+        <tr>
+          <td><%= form.label :rut, class:"form-label" %></td>
+          <td><%= form.text_field :rut, class:"form-control" %></td>
+          <td><%= form.submit "Buscar paciente", class:"btn btn-primary" %></td>
+        </tr>
+      </table>
       </div>
     </div>    
   <% end %>
   <hr>
-  <table>
+  <table class="table table-primary table-striped table-auto table-bordered">
     <thead>
       <tr>
         <th>Rut</th>
         <th>Nombre</th>
         <th>Fono</th>
         <th>Email</th>
-        <th>Fechanac</th>
+        <th>Fecha nacimiento</th>
         <th>Prevision</th>
         <th colspan="2"></th>
       </tr>

@@ -7,9 +7,9 @@ class AgendasController < ApplicationController
   end
 
   # GET /agendas/1 or /agendas/1.json
-  def show
+  def show   
   end
-
+  
   # GET /agendas/new
   def new
     @agenda = Agenda.new

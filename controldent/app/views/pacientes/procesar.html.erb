@@ -1,56 +1,87 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
-
-    <table class="table table-primary table-striped">
-        <tr class="table-primary">
-            <td class="table-primary"><strong>Rut:</strong></td>
-            <td class="table-primary"><%= @paciente.rut %></td>
-        </tr>
-
-        <tr class="table-info">
-            <td class="table-info"><strong>Nombre:</strong></td>
-            <td class="table-info"><%= @paciente.nombre %></td>
-        </tr>
-
-        <tr class="table-primary">
-            <td class="table-primary"><strong>Apellido:</strong></td>
-            <td class="table-primary"><%= @paciente.apellido %></td>
-        </tr>
-
-        <tr class="table-info">
-            <td class="table-info"><strong>Fono:</strong></td>
-            <td class="table-info"><%= @paciente.fono %></td>
-        </tr>
-
-        <tr class="table-primary">
-            <td class="table-primary"><strong>Email:</strong></td>
-            <td class="table-primary"><%= @paciente.email %></td>
-        </tr>
-
-        <tr class="table-info">
-            <td class="table-info"><strong>Fechanac:</strong></td>
-            <td class="table-info"><%= @paciente.fechanac %></td>
-        </tr>
-
-        <tr class="table-primary">
-            <td class="table-primary"><strong>Prevision:</strong></td>
-            <td class="table-primary"><%= @paciente.prevision %></td>
-        </tr>
-        <tr class="table-primary">
-            <td class="table-primary"><strong>Centro Atención:</strong></td>
-            <td class="table-primary"><%= @centro.nombre %></td>
-        </tr>
+    <div class="row bg-info p-2 justify-content-center">
+        <div class="col-4">
+            <label class="form-label">Usuario:</label>&nbsp;
+            <input type="text" name="nombre" value="Natalia Bordones" class="form-control" readonly>
+        </div>
+        <div class="col-4">
+            <label class="form-label">Clinica:</label>&nbsp;
+            <input type="text" name="clini" value="Clinica Sin dientes" class="form-control" readonly>
+        </div>        
+    </div>
+    <div class="row bg-info p-2 justify-content-center">
+        <div class="col-1">
+            <button id="izq" class="btn btn-primary"><<</button>
+        </div>
+        <div class="col-4">
+            <label class="form-label">Profesional:</label>&nbsp;
+            <input type="text" name="profe" value="Gael Franco" class="form-control" readonly>            
+        </div>
+        <div class="col-4">
+            <label class="form-label">Especialidad:</label>&nbsp;
+            <input type="text" name="Espe" value="Maxilo" class="form-control" readonly>
+        </div>        
+        <div class="col-1">
+            <button id="der" class="btn btn-primary">>></button>
+        </div>
+    </div>
+    <div class="row bg-info p-2 justify-content-center">
+    <table class="table table-primary table-auto table-bordered">
+        <thead>
+            <tr class="table-secondary">
+                <th class="table-secondary thn">Hora</th>
+                <% for i in 0..6 %>
+                    <th class="table-secondary">
+                        <%= @dias[i] %>   
+                    </th>    
+                <% end %>                    
+            </tr>
+        </thead>
+        <tbody>
+            <% for i in 0..33 %>
+                <tr>
+                <td class="table-secondary thn">
+                    <%= @tabla[i][0]['ha'] %>
+                </td>
+                <% for j in 0..6 %>
+                    <% if i % 2 == 0 %>
+                    <td class="table-info tdn">
+                        <%= @tabla[i][j]['nom'] %>
+                        <% if @tabla[i][j]['dis'] %>
+                            <% if @tabla[i][j]['nom'].empty? %>
+                                <%= image_tag('add.png', :class => 'add') %>
+                            <% else %>
+                                <%= image_tag('abajo.png', :class => 'abajo') %>    
+                            <% end %>
+                        <% end %>
+                        </td>                                    
+                    <% else %>
+                        <td class="table-primary tdn">
+                            <%= @tabla[i][j]['nom'] %>
+                            <% if @tabla[i][j]['dis'] %>
+                                <% if @tabla[i][j]['nom'].empty? %>
+                                    <%= image_tag('add.png', :class => 'add') %>
+                                <% else %>
+                                    <%= image_tag('abajo.png', :class => 'abajo') %>    
+                                <% end %>
+                            <% end %>
+                        </td>                                    
+                    <% end %>
+                <% end %>
+                </tr>
+            <% end %>                
+        </tbody>
     </table>
-    <tr>
-    <%= form_for :termino, :url => { :action => :listo } do |f| %>    
-        <div class="row">
-          <div class="col-4">
-            <%= f.label "Profesional", class:"form-label" %>
-            <%= collection_select :profesional, :id, @odonto.all, :id, :nom_com, {:prompt => "Seleccione centro de atención"} %>
-          </div>  
-          <div class="col-2">
-            <%= f.submit "Elegir centro de atención", class:"btn btn-primary" %>
-          </div>
-        </div>    
-      <% end %>
+    </div>
+    <hr>
+    <div class="pie">
+        <p> ©Copyright(2021) Giovanni Franco Calfiqueo.</p>
+    </div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+
+        </div>
+    </div>
+   
 </div>

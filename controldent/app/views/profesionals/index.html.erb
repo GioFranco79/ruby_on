@@ -1,41 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Profesionals</h1>
+  <h1>Profesionales</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Rut</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Fono</th>
-      <th>Email</th>
-      <th>Titulo</th>
-      <th>Especialidad</th>
-      <th>Fnac</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profesionals.each do |profesional| %>
+  <table class="table table-primary table-striped table-auto table-bordered">
+    <thead>
       <tr>
-        <td><%= profesional.rut %></td>
-        <td><%= profesional.nombre %></td>
-        <td><%= profesional.apellido %></td>
-        <td><%= profesional.fono %></td>
-        <td><%= profesional.email %></td>
-        <td><%= profesional.titulo %></td>
-        <td><%= profesional.especialidad %></td>
-        <td><%= profesional.fnac %></td>
-        <td><%= link_to 'Show', profesional %></td>
-        <td><%= link_to 'Edit', edit_profesional_path(profesional) %></td>
-        <td><%= link_to 'Destroy', profesional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Rut</th>
+        <th>Nombre</th>       
+        <th>Fono</th>
+        <th>Email</th>
+        <th>Titulo</th>
+        <th>Especialidad</th>
+        <th>Fnac</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @profesionals.each do |profesional| %>
+        <tr>
+          <td><%= profesional.rut %></td>
+          <td><%= profesional.nombre + " " + profesional.apellido%></td>          
+          <td><%= profesional.fono %></td>
+          <td><%= profesional.email %></td>
+          <td><%= profesional.titulo %></td>
+          <td><%= profesional.especialidad %></td>
+          <td><%= profesional.fnac %></td>
+          <td><%= link_to 'Mostrar', profesional %></td>
+          <td><%= link_to 'Editar', edit_profesional_path(profesional) %></td>
+          <td><%= link_to 'Eliminar', profesional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Profesional', new_profesional_path %>
+  <br>
+
+  <%= link_to 'Agregar Profesional', new_profesional_path, class:"btn btn-primary" %>
+</div>
